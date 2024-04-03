@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    
+<div class="input-group mb-3">
+  <form action="/hello_cookies/" method="post">
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      placeholder="Enter the name"
+    />
+    <input
+      type="text"
+      class="form-control"
+      name="email"
+      placeholder="Enter the e-mail"
+    />
+    <input type="submit" class="form-control" value="submit" />
+  </form>
+</div>
+{% endblock %}

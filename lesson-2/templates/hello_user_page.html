@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    
+    Hello, {{ name }}!!!
+    <form action='/exit_/' method="post">
+        <input type=submit class="form-control" value="exit" />
+    </form>
+{% endblock content %}
