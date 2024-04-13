@@ -15,7 +15,6 @@ urls = ['https://i.pinimg.com/originals/59/54/b4/5954b408c66525ad932faa693a647e3
 
 
 def download_sync(url, method_name=''):
-
     response = requests.get(url).content
     filename = url.split('/')[-1]
     with open(f'{method_name}_{filename}', 'wb') as img:
